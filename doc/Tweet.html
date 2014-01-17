@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Tweet - RDoc Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-display_tweets">#display_tweets</a>
+    
+    <li ><a href="#method-i-get_hash_tag">#get_hash_tag</a>
+    
+    <li ><a href="#method-i-get_recent_tweets">#get_recent_tweets</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Tweet">
+  <h1 id="class-Tweet" class="class">
+    class Tweet
+  </h1>
+
+  <section class="description">
+    
+<p>This Class accepts the Hash Tag from a User as an input It then retrieves
+all the latest Tweets that matches the Hash Tag entered Finally, It
+displays the recent 20 tweets to the user.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-display_tweets" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">display_tweets</span><span
+            class="method-args">(hash_tag, tweets)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method displays all the tweets from the search results It also
+displays date, time, user name for the tweets</p>
+          
+          
+
+          
+          <div class="method-source-code" id="display_tweets-source">
+            <pre><span class="ruby-comment"># File tweet.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">display_tweets</span> <span class="ruby-identifier">hash_tag</span>, <span class="ruby-identifier">tweets</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\n\n=======Displaying Recent 20 Tweets That Include the Hash Tag: ##{hash_tag}========\n\n&quot;</span>
+    <span class="ruby-identifier">tweets</span>.<span class="ruby-identifier">take</span>(<span class="ruby-value">20</span>).<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tweet</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\n#{index + 1}. \n User: #{tweet.user.screen_name}&quot;</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\n Tweeted On: #{tweet.created_at.strftime(&#39;%d%b, %Y at %I:%M%p&#39;)}&quot;</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\n\n Tweet: \n  #{tweet.text}\n\n&quot;</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;---------------------------------------------------------------------------&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n\n==========================Tweets End Here====================================\n\n\n\n&quot;</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">log</span>.<span class="ruby-identifier">error</span> <span class="ruby-node">&quot;There was an error while displaying tweets: #{e.message}&quot;</span>
+    <span class="ruby-identifier">raise</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_hash_tag" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_hash_tag</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method accepts Hash Tag from user as an Input</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_hash_tag-source">
+            <pre><span class="ruby-comment"># File tweet.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_hash_tag</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">hash_tag</span> = <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-keyword">while</span> <span class="ruby-identifier">hash_tag</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n\nPlease Enter Hash Tag&quot;</span>
+      <span class="ruby-constant">STDOUT</span>.<span class="ruby-identifier">flush</span>
+      <span class="ruby-identifier">hash_tag</span> = <span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;You Have Entered: ##{hash_tag}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">hash_tag</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">get_recent_tweets</span>( <span class="ruby-identifier">hash_tag</span> )
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">log</span>.<span class="ruby-identifier">error</span> <span class="ruby-node">&quot;There was an error while accepting Hash Tag as an input: #{e.message}&quot;</span>
+    <span class="ruby-identifier">raise</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_recent_tweets" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_recent_tweets</span><span
+            class="method-args">(hash_tag)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method pulls down all the latest 20 tweets that are matched against
+the Hash Tag entered</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_recent_tweets-source">
+            <pre><span class="ruby-comment"># File tweet.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_recent_tweets</span> <span class="ruby-identifier">hash_tag</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">get_twitter</span>
+    <span class="ruby-ivar">@tweets</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">search</span>( <span class="ruby-node">&quot;#&quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">hash_tag</span>, <span class="ruby-identifier">count</span><span class="ruby-operator">:</span> <span class="ruby-value">20</span>, <span class="ruby-identifier">result_type</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;recent&quot;</span> )
+    <span class="ruby-identifier">display_tweets</span>( <span class="ruby-identifier">hash_tag</span>, <span class="ruby-ivar">@tweets</span> )
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">log</span>.<span class="ruby-identifier">error</span> <span class="ruby-node">&quot;There was an error while retrieving tweets: #{e.message}&quot;</span>
+    <span class="ruby-identifier">raise</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

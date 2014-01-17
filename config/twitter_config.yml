@@ -1,0 +1,8 @@
+##All the Twitter API credentials needed to authenticate to the Twitter account are mentioned here
+##It can be changed if needed
+
+config:
+  consumer_key: "QuOmeZ2pcjTnjzfjRewuAA"
+  consumer_secret: "uIWClZqDDgYrWQxRZJTbjVaGgI5sigOReLVMEUcdY"
+  access_token: "2292703980-ReQI4PP69FlVZYbWc3t2cc9BY19EbVa2mmwVnE5"
+  access_token_secret: "L3Vmc8wYxb4qSvRHPdSceBnJHs8F4DnI4PXHXAr5hYGVX"
